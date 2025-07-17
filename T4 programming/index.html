@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="https://www.swissfundplatform.ch/sites/default/files/styles/medium/public/fund_provider_logo/t4_capital_logo.jpg?itok=rpgPSur-" type="image/x-icon">
+  <link rel="icon" href="t4logo.jpg" type="image/x-icon">
   <title>T4 Terminal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -14,11 +14,11 @@
       font-family: monospace;
     }
     .terminal-box {
-      background-color: #06212c;
-      border: 1px solid #333;
+      background-color: #081f2d;
+      border: 1px solid #ffffff;
       padding: 1rem;
       margin-bottom: 1rem;
-      border-radius: 10px;
+      border-radius: 1px;
     }
     .chat-box, .twitter-box {
       max-height: 400px;
@@ -32,111 +32,115 @@
       color: #ffffff;
       border: 1px solid #555;
     }
+    .grid-3x3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .grid-box {
+      background-color: #081f2d;
+      color: #ffffff;
+      padding: 20px;
+      border-radius: 15px;
+      min-height: 200px;
+      text-align: center;
+      border: 1px solid #000000;
+    }
   </style>
 </head>
 <body>
-    <div class="container-fluid p-4">
-        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
+  <div class="container-fluid p-4">
+    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
             <div style="display: flex; align-items: center; gap: 15px; flex-shrink: 0;">
-            <img src="https://www.swissfundplatform.ch/sites/default/files/styles/medium/public/fund_provider_logo/t4_capital_logo.jpg?itok=rpgPSur-" 
-                alt="T4 Logo" width="60" height="60">
-            <h2 class="mb-0" style="white-space: nowrap;"><strong>Crypto Terminal</strong></h2>
-            </div>
-
-            <div style="flex-grow: 1; min-width: 250px;">
-            <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script>
-            <div 
-                id="coinmarketcap-widget-marquee"
-                coins="1,1027,5426,20947,6535,1975,6636,22974"
-                currency="USD"
-                theme="dark"
-                transparent="false"
-                show-symbol-logo="true">
-            </div><!--coins: list of coins that are displayed on the site-->
-            </div>
-        </div>
-        </div>
-<div style="display: flex; gap: 20px; flex-wrap: wrap;">
-  <!-- TradingView Heatmap Widget -->
-  <div style="flex: 1 1 48%; min-width: 400px;">
-    <div class="tradingview-widget-container" style="height:100%; width:100%;">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
-      {
-        "dataSource": "Crypto",
-        "blockSize": "market_cap_calc",
-        "blockColor": "24h_close_change|5",
-        "locale": "en",
-        "symbolUrl": "",
-        "colorTheme": "dark",
-        "hasTopBar": false,
-        "isDataSetEnabled": false,
-        "isZoomEnabled": true,
-        "hasSymbolTooltip": true,
-        "isMonoSize": false,
-        "width": "100%",
-        "height": "450"
-      }
-      </script>
-    </div>
-  </div>
-
-  <!-- TradingView Advanced Chart Widget -->
-  <div style="flex: 1 1 48%; min-width: 400px;">
-    <div class="tradingview-widget-container" style="height:100%; width:100%;">
-      <div class="tradingview-widget-container__widget" style="height: calc(100% - 32px); width: 100%;"></div>
-      <div class="tradingview-widget-copyright">
+        <a href="https://t4-capital.ch" target="_blank">
+          <img src="t4logo.jpg" alt="T4 Logo" width="60" height="60">
+        </a>
+        <h2 class="mb-0" style="white-space: nowrap;"><strong>Crypto Terminal</strong></h2>
       </div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-      {
-        "allow_symbol_change": true,
-        "calendar": false,
-        "details": false,
-        "hide_side_toolbar": true,
-        "hide_top_toolbar": false,
-        "hide_legend": false,
-        "hide_volume": false,
-        "hotlist": false,
-        "interval": "D",
-        "locale": "en",
-        "save_image": true,
-        "style": "1",
-        "symbol": "OKX:BTCUSD",
-        "theme": "dark",
-        "timezone": "Etc/UTC",
-        "backgroundColor": "#0F0F0F",
-        "gridColor": "rgba(242, 242, 242, 0.06)",
-        "watchlist": [],
-        "withdateranges": false,
-        "compareSymbols": [],
-        "studies": [],
-        "autosize": true
-      }
-      </script>
+      <div style="flex-basis: 40%;"></div>
+      <div style="flex-grow: 1; min-width: 250px;">
+        <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script>
+        <div 
+          id="coinmarketcap-widget-marquee"
+          coins="1,1027,5426,20947,6535,1975,6636,22974"
+          currency="USD"
+          theme="dark"
+          transparent="false"
+          show-symbol-logo="true">
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-
-    <div class="row">
-      <div class="col-md-6 terminal-box">
+    <div class="container-fluid p-4 grid-3x3">
+      <div class="grid-box">
+        <!-- TradingView Advanced Chart Widget -->
+        <div class="tradingview-widget-container" style="height:100%; width:100%;">
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+          {
+            "allow_symbol_change": true,
+            "calendar": false,
+            "details": false,
+            "hide_side_toolbar": true,
+            "hide_top_toolbar": false,
+            "hide_legend": false,
+            "hide_volume": false,
+            "hotlist": false,
+            "interval": "D",
+            "locale": "en",
+            "save_image": true,
+            "style": "1",
+            "symbol": "OKX:BTCUSD",
+            "theme": "dark",
+            "timezone": "Etc/UTC",
+            "backgroundColor": "#0F0F0F",
+            "gridColor": "rgba(242, 242, 242, 0.06)",
+            "watchlist": [],
+            "withdateranges": false,
+            "compareSymbols": [],
+            "studies": [],
+            "autosize": true
+          }
+          </script>
+        </div>
+      </div>
+      <div class="grid-box">
+        <!-- TradingView Heatmap Widget -->
+        <div class="tradingview-widget-container" style="height:100%; width:100%;">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
+          {
+            "dataSource": "Crypto",
+            "blockSize": "market_cap_calc",
+            "blockColor": "24h_close_change|5",
+            "locale": "en",
+            "symbolUrl": "",
+            "colorTheme": "dark",
+            "hasTopBar": false,
+            "isDataSetEnabled": false,
+            "isZoomEnabled": true,
+            "hasSymbolTooltip": true,
+            "isMonoSize": false,
+            "width": "100%",
+            "height": "100%"
+          }
+          </script>
+        </div>
+      </div>
+      <div class="grid-box">
         <h5>Bitcoin Price Chart</h5>
         <canvas id="chart1" class="chart-box"></canvas>
       </div>
-      <div class="col-md-6 terminal-box">
+      <div class="grid-box">
         <h5>Ethereum Volume Chart</h5>
         <canvas id="chart2" class="chart-box"></canvas>
       </div>
-    </div>
-
-    <div class="row mt-3">
-      <div class="col-md-6 terminal-box chat-box">
+      <div class="grid-box">
         <h5>AI Assistant (ChatGPT)</h5>
         <div id="chatLog" style="height: 200px; overflow-y: scroll; background: #111; padding: 0.5rem; margin-bottom: 1rem;"></div>
         <input id="chatInput" type="text" class="form-control" placeholder="Ask about crypto..." />
         <button class="btn btn-outline-light mt-2" onclick="mockChatReply()">Send</button>
       </div>
-      <div class="col-md-6 terminal-box twitter-box">
+      <div class="grid-box">
         <h5>Crypto Twitter Feed</h5>
         <blockquote class="twitter-tweet">
           <p lang="en" dir="ltr">Bitcoin breaks $60k 🚀 #BTC</p>&mdash; Crypto News (@crypto_news) 
@@ -145,8 +149,18 @@
           <p lang="en" dir="ltr">Ethereum 2.0 upgrade is coming 🔥 #ETH</p>&mdash; Vitalik Updates (@vitalik_eth) 
         </blockquote>
       </div>
+      <div class="grid-box">
+        <iframe src="https://app.artemisanalytics.com/chart-builder/embed/%7B%22title%22%3A%22RWA%20-%20Tokenized%20Market%20Cap%20(USD)%22%2C%22series_metadata%22%3A%5B%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22blackrock%22%2C%22friendly_name%22%3A%22BlackRock%22%2C%22symbol%22%3A%22blk%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1741040560%2Fblk-logo_tvtl1c.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23FECE00%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22franklin_templeton%22%2C%22friendly_name%22%3A%22Franklin%20Templeton%22%2C%22symbol%22%3A%22ben%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1741052100%2Fft-logo_pwordw.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%233669FF%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22hashnote%22%2C%22friendly_name%22%3A%22Hashnote%22%2C%22symbol%22%3A%22hashnote%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1741045706%2Fhashnote-logo_iyzwwm.jpg%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23003972%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22ondo%22%2C%22friendly_name%22%3A%22Ondo%20Finance%22%2C%22symbol%22%3A%22ondo%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1740095715%2Fondo-logo_qpaw5b.jpg%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23FFFFFF%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22openeden%22%2C%22friendly_name%22%3A%22OpenEden%22%2C%22symbol%22%3A%22openeden%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1741045077%2Fopeneden-logo_iqwks9.jpg%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%237F56D9%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22paxgold%22%2C%22friendly_name%22%3A%22Paxos%20Gold%22%2C%22symbol%22%3A%22paxg%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1746814529%2Fpax_gold_rbulkn.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23cca727%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22paxos%22%2C%22friendly_name%22%3A%22Pax%20Gold%22%2C%22symbol%22%3A%22paxos%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1741049365%2Fpaxos-logo_uljiqf.jpg%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23B4D234%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22plume%22%2C%22friendly_name%22%3A%22Plume%22%2C%22symbol%22%3A%22plume%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1747331615%2Fthumbnails%2Fplume_network_logo-modified_auja2q.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23ff3d00%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22spiko%22%2C%22friendly_name%22%3A%22Spiko%22%2C%22symbol%22%3A%22spiko%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1741051280%2Fspiko-logo_zbtl9y.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23FF7900%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22superstate%22%2C%22friendly_name%22%3A%22Superstate%22%2C%22symbol%22%3A%22superstate%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1741050896%2Fsuperstate-logo_khqgfc.jpg%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23A68D5B%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22tether%22%2C%22friendly_name%22%3A%22Tether%22%2C%22symbol%22%3A%22tether%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1741050311%2Ftether-gold-token-3_ols0eg.svg%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23009493%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22tethergold%22%2C%22friendly_name%22%3A%22Tether%20Gold%22%2C%22symbol%22%3A%22xaut%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1746814345%2Ftethergold_codt9k.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23d3b25a%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22wisdomtree%22%2C%22friendly_name%22%3A%22WisdomTree%22%2C%22symbol%22%3A%22wt%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1741043363%2Fwisdomtree-logo_au2mci.jpg%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22TOKENIZED_MCAP%22%2C%22label%22%3A%22Tokenized%20Market%20Cap%20(USD)%22%2C%22description%22%3A%22Market%20cap%20of%20tokenized%20assets%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%24%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22economic_activity%22%2C%22label%22%3A%22Economic%20Activity%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22stacked-column%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%230047BB%22%2C%22y_axis%22%3A0%7D%5D%2C%22display_settings%22%3A%7B%22granularity%22%3A%22oneYear%22%2C%22aggregation_granularity%22%3A%22MONTH%22%2C%22sma_period%22%3A%220%22%7D%2C%22permissions%22%3A%7B%22access_right%22%3A%22OWNER%22%2C%22sharing_status%22%3A%22PUBLIC%22%7D%2C%22is_favorite%22%3Afalse%7D" width="100%" height="768px" frameBorder="0"></iframe>
+      </div>
+      <div class="grid-box">
+        <h5>Large Caps</h5>
+        <iframe src="https://app.artemisanalytics.com/chart-builder/embed/%7B%22title%22%3A%22Chains%20-%20Daily%20Active%20Addresses%22%2C%22series_metadata%22%3A%5B%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22avalanche%22%2C%22friendly_name%22%3A%22Avalanche%20C-Chain%22%2C%22symbol%22%3A%22avax%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1730749120%2Fthumbnails%2Favalanche_qmjgvd.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23e8484c%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22ethereum%22%2C%22friendly_name%22%3A%22Ethereum%22%2C%22symbol%22%3A%22eth%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1730749132%2Fthumbnails%2Fethereum_ko9cxe.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%237c8ace%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22near%22%2C%22friendly_name%22%3A%22Near%22%2C%22symbol%22%3A%22near%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1730749168%2Fthumbnails%2Fnear_bvns6b.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23f2f1e9%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22optimism%22%2C%22friendly_name%22%3A%22OP%20Mainnet%22%2C%22symbol%22%3A%22op%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1730749145%2Fthumbnails%2Foptimism_v8jbde.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23ff182a%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22polkadot%22%2C%22friendly_name%22%3A%22Polkadot%22%2C%22symbol%22%3A%22dot%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1730749148%2Fthumbnails%2Fpolkadot_i7x1uz.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23e6007a%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22solana%22%2C%22friendly_name%22%3A%22Solana%22%2C%22symbol%22%3A%22sol%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1730749151%2Fthumbnails%2Fsolana_sff5j4.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%2314F195%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22sui%22%2C%22friendly_name%22%3A%22Sui%22%2C%22symbol%22%3A%22sui%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1730749157%2Fthumbnails%2Fsui_vpeehn.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%234CA3FF%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22ton%22%2C%22friendly_name%22%3A%22TON%22%2C%22symbol%22%3A%22ton%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1730749171%2Fthumbnails%2Fton_qey9sp.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%230098E9%22%2C%22y_axis%22%3A0%7D%5D%2C%22display_settings%22%3A%7B%22granularity%22%3A%22threeMonths%22%2C%22aggregation_granularity%22%3A%22DAY%22%7D%2C%22permissions%22%3A%7B%22access_right%22%3A%22OWNER%22%2C%22sharing_status%22%3A%22PUBLIC%22%7D%2C%22is_favorite%22%3Afalse%2C%22description%22%3A%22Daily%20active%20users%22%7D" width="100%" height="768px" frameBorder="0"></iframe>
+      </div>
+      <div class="grid-box">
+        <h5>Small Caps / Gaming</h5>
+        <iframe src="https://app.artemisanalytics.com/chart-builder/embed/%7B%22title%22%3A%22Chains%20-%20Daily%20Active%20Addresses%22%2C%22series_metadata%22%3A%5B%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22beam%22%2C%22friendly_name%22%3A%22Beam%22%2C%22symbol%22%3A%22beam%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1730749122%2Fthumbnails%2Fbeam_iib6bc.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%232B53EB%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22injective%22%2C%22friendly_name%22%3A%22Injective%22%2C%22symbol%22%3A%22inj%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1742501157%2Fapplication-icons%2FInjective_Symbol_-_Blue_with_White_Bg_siegwb.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%232EA7F5%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22flare%22%2C%22friendly_name%22%3A%22Flare%22%2C%22symbol%22%3A%22flr%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1746638587%2FFLR_v1bsoh.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23E42058%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22flow%22%2C%22friendly_name%22%3A%22Flow%22%2C%22symbol%22%3A%22flow%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1730749134%2Fthumbnails%2Fflow_j9ozas.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%2300EF8A%22%2C%22y_axis%22%3A0%7D%2C%7B%22asset%22%3A%7B%22group%22%3A%22APPLICATION%22%2C%22value%22%3A%22starknet%22%2C%22friendly_name%22%3A%22Starknet%22%2C%22symbol%22%3A%22strk%22%2C%22icon%22%3A%22https%3A%2F%2Fres.cloudinary.com%2Fdgdsz4rvi%2Fimage%2Fupload%2Fv1730749155%2Fthumbnails%2Fstarknet_fdk6ap.png%22%7D%2C%22metric%22%3A%7B%22value%22%3A%22DAU%22%2C%22label%22%3A%22Daily%20Active%20Addresses%22%2C%22description%22%3A%22Daily%20active%20users%22%2C%22source%22%3A%22Source%3A%20Artemis%22%2C%22unit%22%3A%22%22%2C%22aggregation%22%3A%22AVERAGE%22%2C%22categories%22%3A%5B%7B%22value%22%3A%22usage_data%22%2C%22label%22%3A%22Usage%20Data%22%7D%5D%2C%22cuts%22%3A%5B%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22CHAIN%22%7D%2C%7B%22granularity%22%3A%22DAY%22%2C%22dimension_type%22%3A%22TOTAL%22%7D%5D%2C%22internal_data_source%22%3A%22catalog%22%2C%22methodology%22%3A%22%22%7D%2C%22series_type%22%3A%22line%22%2C%22display%22%3A%22timeline%22%2C%22scale%22%3A%22linear%22%2C%22units%22%3A%22raw%22%2C%22color%22%3A%22%23a5caff%22%2C%22y_axis%22%3A0%7D%5D%2C%22display_settings%22%3A%7B%22granularity%22%3A%22threeMonths%22%2C%22aggregation_granularity%22%3A%22DAY%22%7D%2C%22permissions%22%3A%7B%22access_right%22%3A%22OWNER%22%2C%22sharing_status%22%3A%22PUBLIC%22%7D%2C%22is_favorite%22%3Afalse%2C%22description%22%3A%22Daily%20active%20users%22%7D" width="100%" height="768px" frameBorder="0"></iframe>
+      </div>
     </div>
-  </div>
 
   <script>
     const ctx1 = document.getElementById('chart1').getContext('2d');
